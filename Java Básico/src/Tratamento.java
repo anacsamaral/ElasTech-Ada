@@ -6,11 +6,16 @@ public class Tratamento {
         */
 
         try {
-            int resultado = dividir(10,0);
+            int resultado = dividir(10,2);
             System.out.println("Resultado: " + resultado);
         }
         catch(ArithmeticException e) {
-
+            System.out.println("Erro: divisão por zero.");
+        } finally {
+            System.out.println("Bloco finally sendo executado");
         }
+    }
+    public static int dividir(int a, int b){
+        return a / b;
     }
 }
