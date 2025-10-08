@@ -1,0 +1,7 @@
+    Visibilidade                            public      protected       default     private
+---------------------------------------------------------------------------------------------|
+A partir da mesma classe                     sim          sim             sim         sim
+Qualquer classe no mesmo pacote              sim          sim             sim         não
+Qualquer classe filha no mesmo pacote        sim          sim             sim         não
+Qualquer classe filha em pacote diferente    sim          sim             não         não
+Qualquer classe em pacote diferente          sim          não             não         não

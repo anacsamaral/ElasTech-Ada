@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaPOO/ClassesNaoExecutaveis/ClassesNaoExecutaveis.iml" filepath="$PROJECT_DIR$/JavaPOO/ClassesNaoExecutaveis/ClassesNaoExecutaveis.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ElasTech-Ada.iml" filepath="$PROJECT_DIR$/.idea/ElasTech-Ada.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java Básico/Java Básico.iml" filepath="$PROJECT_DIR$/Java Básico/Java Básico.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaPOO/JavaPOO.iml" filepath="$PROJECT_DIR$/JavaPOO/JavaPOO.iml" />
