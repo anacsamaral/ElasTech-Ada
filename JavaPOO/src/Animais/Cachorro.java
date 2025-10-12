@@ -2,7 +2,7 @@ package Animais;
 
 public class Cachorro extends Animal{
 
-    static int qtdCachorros = 0;
+    static int qtdCachorros;
     static int tamanhoRabo;
 
     public Cachorro(String nome, String cor, String estado, int altura, double peso) {
