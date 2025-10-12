@@ -2,9 +2,10 @@ package Animais;
 
 public class Cachorro extends Animal{
 
-    static int qtdCachorros;
+    static int qtdCachorros = 0;
+    static int tamanhoRabo;
 
-    public Cachorro(String nome, String cor, String estado, int altura, double peso, int qtdCachorros) {
+    public Cachorro(String nome, String cor, String estado, int altura, double peso) {
         super(nome, cor, estado, altura, peso);
         qtdCachorros++;
     }
@@ -23,17 +24,19 @@ public class Cachorro extends Animal{
         return estado;
     }
 
+    public int getQtdCachorros(){
+        return qtdCachorros;
+    }
+
+    @Override
+    public void soar() {
+        System.out.println("Au Au");
+    }
+
     @Override
     public String toString() {
         return "Cachorro{" +
                 "nome='" + nome + '\'' +
                 '}';
-    }
-
-    @Override
-
-    @Override
-    protected void soar() {
-        System.out.println("Au Au");
     }
 }

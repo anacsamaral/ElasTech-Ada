@@ -8,6 +8,15 @@ public class Passaro extends Animal {
         qtdPassaros++;
     }
 
+    public int getQtdPassaros() {
+        return qtdPassaros;
+    }
+
+    @Override
+    public void soar() {
+        System.out.println("Piu Piu");
+    }
+
     @Override
     public String toString() {
         return "Passaro{" +

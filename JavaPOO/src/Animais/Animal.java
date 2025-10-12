@@ -20,8 +20,8 @@ public class Animal {
 
     protected void dormir(){}
 
-    protected void soar(){
-        System.out.println("cri cri");
+    public void soar(){
+        System.out.println("Cri Cri");
     }
 
     public String getNome() {
