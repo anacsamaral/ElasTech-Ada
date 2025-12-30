@@ -1,4 +1,4 @@
-package tech.ada.java;
+package tech.ada.java.cursospring.api;
 
 import lombok.*;
 

@@ -1,6 +1,8 @@
-package tech.ada.java;
+package tech.ada.java.cursospring;
 
-public class Aplicacao {
+import tech.ada.java.cursospring.api.Postagem;
+
+public class CursoSpringApplication {
 
     public static void main(String[] args) {
         Postagem postagem = new Postagem();

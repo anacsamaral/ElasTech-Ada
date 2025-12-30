@@ -1,4 +1,4 @@
-package tech.ada.java.json;
+package tech.ada.java.cursospring.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
