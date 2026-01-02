@@ -1,13 +1,13 @@
-package tech.ada.java.cursospringapi;
+package tech.ada.java.springapirest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CursoSpringApiApplication {
+public class SpringApiRestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CursoSpringApiApplication.class, args);
+        SpringApplication.run(SpringApiRestApplication.class, args);
     }
 
 }

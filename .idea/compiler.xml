@@ -9,21 +9,25 @@
         <outputRelativeToContentRoot value="true" />
         <module name="curso-spring" />
       </profile>
-      <profile name="Annotation profile for todo-list-api" enabled="true">
+      <profile name="Annotation profile for spring-api-rest" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
+        <module name="spring-api-rest" />
         <module name="todo-list-api" />
-        <module name="curso-spring-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="curso-spring-api" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="curso-spring-api" options="-parameters" />
+      <module name="spring-api-rest" options="-parameters" />
       <module name="todo-list-api" options="-parameters" />
     </option>
   </component>

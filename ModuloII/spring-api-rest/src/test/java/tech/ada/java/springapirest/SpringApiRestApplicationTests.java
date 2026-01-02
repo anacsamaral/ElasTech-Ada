@@ -1,10 +1,10 @@
-package tech.ada.java.cursospringapi;
+package tech.ada.java.springapirest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CursoSpringApiApplicationTests {
+class SpringApiRestApplicationTests {
 
     @Test
     void contextLoads() {

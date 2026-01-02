@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tech.ada.java</groupId>
-    <artifactId>curso-spring-api</artifactId>
+    <artifactId>spring-api-rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>curso-spring-api</name>
-    <description>curso-spring-api</description>
+    <name>spring-api-rest</name>
+    <description>spring-api-rest</description>
     <url/>
     <licenses>
         <license/>
@@ -27,7 +27,7 @@
         <url/>
     </scm>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -44,6 +44,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tech.ada.java</groupId>
+            <artifactId>curso-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
