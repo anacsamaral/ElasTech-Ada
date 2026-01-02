@@ -1,9 +1,6 @@
 package tech.ada.java.springapirest.api;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import tech.ada.java.springapirest.api.Usuario;
 
 import java.time.LocalDate;
@@ -13,6 +10,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Postagem {
 
     private UUID uuid;

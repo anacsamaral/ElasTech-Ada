@@ -21,7 +21,8 @@ public class JsonReaderDemo {
     }
 
     private static void lerComHttpClient() {
-        try(HttpClient cliente = HttpClient.newBuilder().build()) {
+        try{
+            HttpClient cliente = HttpClient.newBuilder().build();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://dummyjson.com/posts/1"))
                     .build();
