@@ -55,7 +55,7 @@ public class UsuarioRestController {
         return usuarioNovo;
     }
 
-    @PatchMapping("/{uuid}")
+    @PatchMapping("/{uuid}/alterar-nome")
     public Usuario alterarNome(@PathVariable UUID uuid, @RequestBody Usuario usuarioAlterado){
         Usuario usuario = this.buscarPorUuid(uuid);
         usuario.setNome(usuarioAlterado.getNome());
