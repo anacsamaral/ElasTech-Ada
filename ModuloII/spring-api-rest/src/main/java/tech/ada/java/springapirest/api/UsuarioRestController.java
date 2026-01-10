@@ -28,7 +28,7 @@ public class UsuarioRestController {
         return this.usuarioList;
     }
 
-    @GetMapping("/{uuid}")
+    @GetMapping("/{uuid}") // tratar como variável
     public Usuario buscarPorUuid(@PathVariable UUID uuid){
         return usuarioList.stream()
                 .filter(usuario -> usuario.getUuid().equals(uuid))
@@ -36,12 +36,36 @@ public class UsuarioRestController {
                 .orElseThrow();
     }
 
-    public Usuario
+    @PostMapping("/")
+    public Usuario criarUsuario(@RequestBody Usuario usuario){
+        this.usuarioList.add(usuario);
+        return usuario;
+    }
 
     @PostMapping("/create-dummy")
     public Usuario createDummy(){
         Usuario dummy = new Usuario(UUID.randomUUID(), "Dummy", "dummy@example.com", LocalDate.now());
         return this.criarUsuario(dummy);
+    }
+
+    @PutMapping("/{id}")
+    public Usuario atualizarUsuario(@PathVariable UUID id, @RequestBody Usuario usuarioNovo){
+        Usuario usuario = this.buscarPorUuid(id);
+        this.usuarioList.set(this.usuarioList.indexOf(usuario), usuarioNovo);
+        return usuarioNovo;
+    }
+
+    @PatchMapping("/{uuid}")
+    public Usuario alterarNome(@PathVariable UUID uuid, @RequestBody Usuario usuarioAlterado){
+        Usuario usuario = this.buscarPorUuid(uuid);
+        usuario.setNome(usuarioAlterado.getNome());
+        this.usuarioList.set(this.usuarioList.indexOf(usuario), usuarioAlterado);
+        return usuarioAlterado;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletarUsuario(@PathVariable UUID id){
+        this.usuarioList.removeIf(usuario -> usuario.getUuid().equals(id));
     }
 
 }
