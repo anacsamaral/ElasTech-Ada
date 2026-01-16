@@ -1,9 +1,7 @@
-package tech.ada.java.springapirest.api;
+package tech.ada.java.springapirest.api.usuario;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import tech.ada.java.springapirest.api.exception.NaoEncontradoException;
 
@@ -15,6 +13,12 @@ import java.util.*;
 public class UsuarioRestController {
 
     private final List<Usuario> usuarioList = new ArrayList<>();
+    private final UsuarioJpaRepository repository;
+
+    // @Autowired
+    public UsuarioRestController(UsuarioJpaRepository repository){
+        this.repository = repository;
+    }
 
     @GetMapping("/dummy")
     public Usuario dummyUsuario(){
@@ -24,8 +28,6 @@ public class UsuarioRestController {
     //CRUD - Create, Read, Update, Delete
     //HTTP - POST, GET, PUT, PATCH, DELETE
 
-
-
     @GetMapping
     public List<Usuario> listarTodos(){
         return this.usuarioList;
@@ -33,16 +35,13 @@ public class UsuarioRestController {
 
     @GetMapping("/{uuid}") // tratar como variável
     public Usuario buscarPorUuid(@PathVariable UUID uuid){
-        return usuarioList.stream()
-                .filter(usuario -> usuario.getUuid().equals(uuid))
-                .findFirst()
-                .orElseThrow(() -> new NaoEncontradoException("Não foi possível encontrar o usuário."));
+        return this.repository.findByUuid(uuid)
+                .orElseThrow(() -> new NaoEncontradoException("Usuário não encontrado."));
     }
 
     @PostMapping("/")
     public Usuario criarUsuario(@RequestBody @Valid Usuario usuario){
-        this.usuarioList.add(usuario);
-        return usuario;
+        return this.repository.save(usuario);
     }
 
     @PostMapping("/create-dummy")
@@ -51,11 +50,11 @@ public class UsuarioRestController {
         return this.criarUsuario(dummy);
     }
 
-    @PutMapping("/{id}")
-    public Usuario atualizarUsuario(@PathVariable UUID id, @RequestBody @Valid Usuario usuarioNovo){
-        Usuario usuario = this.buscarPorUuid(id);
-        this.usuarioList.set(this.usuarioList.indexOf(usuario), usuarioNovo);
-        return usuarioNovo;
+    @PutMapping("/{uuid}")
+    public Usuario atualizarUsuario(@PathVariable UUID uuid, @RequestBody @Valid Usuario usuarioNovo){
+        Usuario usuario = this.buscarPorUuid(uuid);
+        usuarioNovo.setId(usuario.getId());
+        return this.repository.save(usuarioNovo);
     }
 
     @PatchMapping("/{uuid}/alterar-nome")
@@ -66,9 +65,10 @@ public class UsuarioRestController {
         return usuarioAlterado;
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarUsuario(@PathVariable UUID id){
-        this.usuarioList.removeIf(usuario -> usuario.getUuid().equals(id));
+    @Transactional
+    @DeleteMapping("/{uuid}")
+    public void deletarUsuario(@PathVariable UUID uuid){
+        this.repository.deleteByUuid(uuid);
     }
 
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
