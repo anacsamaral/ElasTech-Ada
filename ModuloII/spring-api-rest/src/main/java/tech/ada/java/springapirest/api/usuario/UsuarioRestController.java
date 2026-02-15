@@ -12,17 +12,15 @@ import java.util.*;
 @RequestMapping("/usuarios")
 public class UsuarioRestController {
 
-    private final List<Usuario> usuarioList = new ArrayList<>();
     private final UsuarioJpaRepository repository;
 
-    // @Autowired
     public UsuarioRestController(UsuarioJpaRepository repository){
         this.repository = repository;
     }
 
     @GetMapping("/dummy")
     public Usuario dummyUsuario(){
-        return new Usuario(UUID.randomUUID(), "Ana", "ana.caroline@gmail.com", LocalDate.now());
+        return new Usuario(UUID.randomUUID(), "Geovana", "gigimeuamor@gmail.com", LocalDate.now());
     }
 
     //CRUD - Create, Read, Update, Delete
@@ -30,7 +28,7 @@ public class UsuarioRestController {
 
     @GetMapping
     public List<Usuario> listarTodos(){
-        return this.usuarioList;
+        return this.repository.findAll();
     }
 
     @GetMapping("/{uuid}") // tratar como variável
@@ -61,7 +59,6 @@ public class UsuarioRestController {
     public Usuario alterarNome(@PathVariable UUID uuid, @RequestBody Usuario usuarioAlterado){
         Usuario usuario = this.buscarPorUuid(uuid);
         usuario.setNome(usuarioAlterado.getNome());
-        this.usuarioList.set(this.usuarioList.indexOf(usuario), usuarioAlterado);
         return usuarioAlterado;
     }
 

@@ -14,9 +14,9 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 public class Usuario {
 
